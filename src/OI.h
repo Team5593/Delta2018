@@ -7,7 +7,13 @@
 
 #pragma once
 
+#include <Joystick.h>
+#include <Buttons/JoystickButton.h>
+
 class OI {
 public:
 	OI();
+private:
+	frc::Joystick x_joy{0}; // xbox controller
+
 };
