@@ -12,3 +12,7 @@
 OI::OI() {
 	// Process operator interface input here.
 }
+
+frc::Joystick& OI::GetJoystick() {
+	return x_joystick;
+}

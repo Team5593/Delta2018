@@ -7,15 +7,15 @@
 
 #pragma once
 
-#include <Joystick.h>
-#include <Buttons/JoystickButton.h>
+#include <Commands/Command.h>
 
-class OI {
+/**
+ * Have the robot drive tank style using the PS3 Joystick until interrupted.
+ */
+class ControllerDrive : public frc::Command {
 public:
-	OI();
-
-	frc::Joystick& GetJoystick();
-private:
-	frc::Joystick x_joystick{0}; // xbox controller
-
+	ControllerDrive();
+	void Execute() override;
+	bool IsFinished() override;
+	void End() override;
 };

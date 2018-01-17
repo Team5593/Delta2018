@@ -1,6 +1,11 @@
 #include "DriveTrain.h"
 
-DriveTrain::DriveTrain():
+#include <Joystick.h>
+#include <SmartDashboard/SmartDashboard.h>
+
+#include "../Commands/ControllerDrive.h"
+
+DriveTrain::DriveTrain()
 	: frc::Subsystem("DriveTrain")
 {
 	AddChild("Left Motor", motor_left);
@@ -10,7 +15,7 @@ DriveTrain::DriveTrain():
 }
 
 void DriveTrain::InitDefaultCommand() {
-	//SetDefaultCommand(new TankDriveWithJoystick());
+	SetDefaultCommand(new ControllerDrive());
 }
 
 void DriveTrain::Drive(double left, double right) {

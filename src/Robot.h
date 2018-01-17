@@ -5,9 +5,17 @@
 #include <SmartDashboard/SmartDashboard.h>
 #include <TimedRobot.h>
 
+#include "OI.h"
+#include "Subsystems/DriveTrain.h"
+#include "Commands/ControllerDrive.h"
+
 class Robot : public frc::TimedRobot
 {
 public:
+	static DriveTrain drivetrain;
+	static OI oi;
+	
+private:
 	// Robot
 	void RobotInit() override;
 	void RobotPeriodic() override;
@@ -25,5 +33,4 @@ public:
 	void TestPeriodic() override;
 
 private:
-
 };
