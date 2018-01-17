@@ -5,40 +5,61 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include <Commands/Command.h>
-#include <Commands/Scheduler.h>
-#include <LiveWindow/LiveWindow.h>
-#include <SmartDashboard/SendableChooser.h>
-#include <SmartDashboard/SmartDashboard.h>
-#include <TimedRobot.h>
+#include "Robot.h"
 
-#include "Commands/ExampleCommand.h"
-#include "Commands/MyAutoCommand.h"
+// Robot
+void Robot::RobotInit()
+{
 
-class Robot : public frc::TimedRobot {
-public:
-	void RobotInit() override {
-	}
+}
 
-	void DisabledInit() override {}
+void Robot::RobotPeriodic()
+{
 
-	void DisabledPeriodic() override {
-	}
+}
 
-	void AutonomousInit() override {
-	}
+// Disabled
+void Robot::DisabledInit()
+{
 
-	void AutonomousPeriodic() override {
-	}
+}
 
-	void TeleopInit() override {
-	}
+void Robot::DisabledPeriodic()
+{
 
-	void TeleopPeriodic() override {}
+}
 
-	void TestPeriodic() override {}
+// Autonomous
+void Robot::AutonomousInit()
+{
 
-private:
-};
+}
+
+void Robot::AutonomousPeriodic()
+{
+
+}
+
+// Teleop
+void Robot::TeleopInit()
+{
+
+}
+
+void Robot::TeleopPeriodic()
+{
+
+}
+
+// Test
+void Robot::TestInit()
+{
+
+}
+
+void Robot::TestPeriodic()
+{
+	
+}
 
 START_ROBOT_CLASS(Robot)
