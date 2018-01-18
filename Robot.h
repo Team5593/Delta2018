@@ -9,8 +9,7 @@
 #include "Subsystems/DriveTrain.h"
 #include "Commands/ControllerDrive.h"
 
-class Robot : public frc::TimedRobot
-{
+class Robot : public frc::TimedRobot {
 public:
 	static DriveTrain drivetrain;
 	static OI oi;
