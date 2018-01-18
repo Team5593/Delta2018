@@ -31,6 +31,4 @@ private:
 	// Test
 	void TestInit() override;
 	void TestPeriodic() override;
-
-private:
 };
