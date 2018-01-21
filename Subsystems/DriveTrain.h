@@ -19,7 +19,7 @@ public:
 	void InitDefaultCommand() override;
 
 	void Drive(double left, double right);
-private:
+	
 	// Motors
 	frc::Talon motor_left{MTR_DRIVE_LEFT};
 	frc::Talon motor_right{MTR_DRIVE_RIGHT};
