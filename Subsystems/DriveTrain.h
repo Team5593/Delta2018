@@ -5,6 +5,7 @@
 #include <Drive/DifferentialDrive.h>
 #include <Talon.h>
 #include <Encoder.h>
+#include <BuiltInAccelerometer.h>
 
 namespace frc {
 class Joystick;
@@ -19,11 +20,15 @@ public:
 
 	void Drive(double left, double right);
 private:
+	// Motors
 	frc::Talon motor_left{MTR_DRIVE_LEFT};
 	frc::Talon motor_right{MTR_DRIVE_RIGHT};
 
 	frc::DifferentialDrive robot_drive{motor_left, motor_right};
 
+	// Sensors
 	frc::Encoder encoder_left{ENC_LEFT_A, ENC_LEFT_B};
 	frc::Encoder encoder_right{ENC_RIGHT_A, ENC_RIGHT_B};
+
+	frc::BuiltInAccelerometer accel_internal{};
 };
