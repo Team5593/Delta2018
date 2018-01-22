@@ -26,3 +26,7 @@ void Shooter::SetPivotDown() {
 void Shooter::SetPivotOff() {
 	solenoid_pivot.Set(frc::DoubleSolenoid::Value::kOff);
 }
+
+void Shooter::SetPivotState(frc::DoubleSolenoid::Value value) {
+	solenoid_pivot.Set(value);
+}

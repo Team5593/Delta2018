@@ -17,6 +17,7 @@ public:
 	void SetPivotUp();
 	void SetPivotDown();
 	void SetPivotOff();
+	void SetPivotState(frc::DoubleSolenoid::Value value);
 
 private:
 	// Motors
