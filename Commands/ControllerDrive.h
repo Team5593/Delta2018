@@ -8,6 +8,7 @@
 #pragma once
 
 #include <Commands/Command.h>
+#include "../Subsystems/DriveTrain.h"
 
 /**
  * Have the robot drive tank style using the PS3 Joystick until interrupted.
@@ -15,7 +16,9 @@
 class ControllerDrive : public frc::Command {
 public:
 	ControllerDrive();
+	//void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;
 	void End() override;
+	//void Interrupted() override;
 };

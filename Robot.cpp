@@ -13,57 +13,47 @@ DriveTrain Robot::drivetrain;
 OI Robot::oi;
 
 // Robot
-void Robot::RobotInit()
-{
+void Robot::RobotInit() {
 
 }
 
-void Robot::RobotPeriodic()
-{
+void Robot::RobotPeriodic() {
 
 }
 
 // Disabled
-void Robot::DisabledInit()
-{
+void Robot::DisabledInit() {
 
 }
 
-void Robot::DisabledPeriodic()
-{
+void Robot::DisabledPeriodic() {
 
 }
 
 // Autonomous
-void Robot::AutonomousInit()
-{
+void Robot::AutonomousInit() {
 
 }
 
-void Robot::AutonomousPeriodic()
-{
+void Robot::AutonomousPeriodic() {
 
 }
 
 // Teleop
-void Robot::TeleopInit()
-{
+void Robot::TeleopInit() {
 
 }
 
-void Robot::TeleopPeriodic()
-{
+void Robot::TeleopPeriodic() {
 
 }
 
 // Test
-void Robot::TestInit()
-{
+void Robot::TestInit() {
 
 }
 
-void Robot::TestPeriodic()
-{
+void Robot::TestPeriodic() {
 	
 }
 
