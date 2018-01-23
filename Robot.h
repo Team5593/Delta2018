@@ -12,8 +12,11 @@
 
 class Robot : public frc::TimedRobot {
 public:
+	// Subsystems
 	static DriveTrain drivetrain;
+	// Commands
 	static ControllerDrive controllerDrive;
+	// Operator Interface
 	static OI oi;
 
 private:

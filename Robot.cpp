@@ -7,13 +7,9 @@
 
 #include "Robot.h"
 
-// Subsystems
 DriveTrain Robot::drivetrain;
-// Commnads
 ControllerDrive Robot::controllerDrive;
-// Operator Interface
 OI Robot::oi;
-
 
 // Robot
 void Robot::RobotInit() {
