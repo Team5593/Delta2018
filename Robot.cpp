@@ -7,7 +7,8 @@
 
 #include "Robot.h"
 
-DriveTrain Robot::drivetrain;
+DriveTrain 	Robot::drivetrain;
+Shooter 	Robot::shooter;
 ControllerDrive Robot::controllerDrive;
 OI Robot::oi;
 

@@ -8,12 +8,14 @@
 
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
+#include "Subsystems/Shooter.h"
 #include "Commands/ControllerDrive.h"
 
 class Robot : public frc::TimedRobot {
 public:
 	// Subsystems
 	static DriveTrain drivetrain;
+	static Shooter shooter;
 	// Commands
 	static ControllerDrive controllerDrive;
 	// Operator Interface
