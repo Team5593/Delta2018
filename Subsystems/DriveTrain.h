@@ -21,14 +21,14 @@ public:
 	void Drive(double left, double right);
 	
 	// Motors
-	frc::Talon motor_left{MTR_DRIVE_LEFT};
-	frc::Talon motor_right{MTR_DRIVE_RIGHT};
+	frc::Talon motor_left;
+	frc::Talon motor_right;
 
 	frc::DifferentialDrive robot_drive;
 
 	// Sensors
-	frc::Encoder encoder_left{ENC_LEFT_A, ENC_LEFT_B};
-	frc::Encoder encoder_right{ENC_RIGHT_A, ENC_RIGHT_B};
+	frc::Encoder encoder_left;
+	frc::Encoder encoder_right;
 
-	frc::BuiltInAccelerometer accel_internal{};
+	frc::BuiltInAccelerometer accel_internal;
 };
