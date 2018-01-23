@@ -16,9 +16,9 @@
 class ControllerDrive : public frc::Command {
 public:
 	ControllerDrive();
-	//void Initialize() override;
+	void Initialize() override;
 	void Execute() override;
 	bool IsFinished() override;
 	void End() override;
-	//void Interrupted() override;
+	void Interrupted() override;
 };

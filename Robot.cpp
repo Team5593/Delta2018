@@ -9,8 +9,11 @@
 
 // Subsystems
 DriveTrain Robot::drivetrain;
+// Commnads
+ControllerDrive Robot::controllerDrive;
 // Operator Interface
 OI Robot::oi;
+
 
 // Robot
 void Robot::RobotInit() {
@@ -45,7 +48,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-
+	controllerDrive.Run();
 }
 
 // Test

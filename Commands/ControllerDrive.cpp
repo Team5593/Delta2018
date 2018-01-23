@@ -10,8 +10,13 @@
 #include "../Robot.h"
 
 ControllerDrive::ControllerDrive()
-    : frc::Command("TankDriveWithJoystick") {
+    : frc::Command("ControllerDrive")
+{
 	Requires(&Robot::drivetrain);
+}
+
+void ControllerDrive::Initialize() {
+
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -28,4 +33,8 @@ bool ControllerDrive::IsFinished() {
 // Called once after isFinished returns true
 void ControllerDrive::End() {
 	Robot::drivetrain.Drive(0, 0);
+}
+
+void ControllerDrive::Interrupted() {
+	End();
 }

@@ -5,8 +5,9 @@
 
 #include "../Commands/ControllerDrive.h"
 
-DriveTrain::DriveTrain()
-	: frc::Subsystem("DriveTrain")
+DriveTrain::DriveTrain():
+	frc::Subsystem("DriveTrain"),
+	robot_drive(motor_left, motor_right)
 {
 	AddChild("Left Motor", motor_left);
 	AddChild("Right Motor", motor_right);

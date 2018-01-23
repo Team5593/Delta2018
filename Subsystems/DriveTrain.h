@@ -24,7 +24,7 @@ public:
 	frc::Talon motor_left{MTR_DRIVE_LEFT};
 	frc::Talon motor_right{MTR_DRIVE_RIGHT};
 
-	frc::DifferentialDrive robot_drive{motor_left, motor_right};
+	frc::DifferentialDrive robot_drive;
 
 	// Sensors
 	frc::Encoder encoder_left{ENC_LEFT_A, ENC_LEFT_B};

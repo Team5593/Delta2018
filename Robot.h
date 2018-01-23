@@ -12,8 +12,9 @@
 class Robot : public frc::TimedRobot {
 public:
 	static DriveTrain drivetrain;
+	static ControllerDrive controllerDrive;
 	static OI oi;
-	
+
 private:
 	// Robot
 	void RobotInit() override;
