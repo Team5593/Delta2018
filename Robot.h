@@ -3,6 +3,7 @@
 #include <LiveWindow/LiveWindow.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
+#include <CameraServer.h>
 #include <TimedRobot.h>
 
 #include "OI.h"
