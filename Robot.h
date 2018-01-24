@@ -19,7 +19,12 @@
 
 class Robot : public frc::TimedRobot {
 public:
+	// Subsystems
 	static DriveTrain drivetrain;
+	static Shooter shooter;
+	// Commands
+	static ControllerDrive controllerDrive;
+	// Operator Interface
 	static OI oi;
 
 private:
