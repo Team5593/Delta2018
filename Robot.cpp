@@ -32,7 +32,14 @@ void Robot::DisabledPeriodic() {
 
 // Autonomous
 void Robot::AutonomousInit() {
-	frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
+	PlateSide* sides = GetGameData();
+
+	if (sides[Plate::SwitchClose] == PlateSide::Left) {
+		frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
+	}
+	else {
+		frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
+	}
 }
 
 void Robot::AutonomousPeriodic() {
@@ -55,6 +62,19 @@ void Robot::TestInit() {
 
 void Robot::TestPeriodic() {
 
+}
+
+// Game Data
+Robot::PlateSide* Robot::GetGameData() {
+	static PlateSide sides[3];
+
+	std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+
+	for (int i = 0; i < 3; i++) {
+		sides[i] = PlateSide(gameData[i]);
+	}
+
+	return sides;
 }
 
 START_ROBOT_CLASS(Robot)

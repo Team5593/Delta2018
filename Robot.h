@@ -9,10 +9,11 @@
 #include <TimedRobot.h>
 #include <iostream>
 #include <Timer.h>
-#include <BuiltInAccelerometer.h>
+#include <DriverStation.h>
 
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
+#include "Subsystems/Shooter.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
 #include "CommandGroups/AutoTest.h"
@@ -22,8 +23,6 @@ public:
 	// Subsystems
 	static DriveTrain drivetrain;
 	static Shooter shooter;
-	// Commands
-	static ControllerDrive controllerDrive;
 	// Operator Interface
 	static OI oi;
 
@@ -43,4 +42,8 @@ private:
 	// Test
 	void TestInit() override;
 	void TestPeriodic() override;
+	// Game Data
+	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
+	enum PlateSide { Left = 'L', Right = 'R' };
+	PlateSide* GetGameData();
 };
