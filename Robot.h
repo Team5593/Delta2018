@@ -1,3 +1,5 @@
+#pragma once
+
 #include <Commands/Command.h>
 #include <Commands/Scheduler.h>
 #include <LiveWindow/LiveWindow.h>
@@ -8,12 +10,12 @@
 
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
-#include "Commands/ControllerDrive.h"
+#include "Commands/MoveTimed.h"
+#include "Commands/RotateTimed.h"
 
 class Robot : public frc::TimedRobot {
 public:
 	static DriveTrain drivetrain;
-	static ControllerDrive controllerDrive;
 	static OI oi;
 
 private:

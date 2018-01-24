@@ -9,8 +9,6 @@
 
 // Subsystems
 DriveTrain Robot::drivetrain;
-// Commnads
-ControllerDrive Robot::controllerDrive;
 // Operator Interface
 OI Robot::oi;
 
@@ -35,11 +33,11 @@ void Robot::DisabledPeriodic() {
 
 // Autonomous
 void Robot::AutonomousInit() {
-
+	frc::Scheduler::GetInstance()->AddCommand(new RotateTimed(1, 0.75));
 }
 
 void Robot::AutonomousPeriodic() {
-
+	frc::Scheduler::GetInstance()->Run();
 }
 
 // Teleop
@@ -48,7 +46,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-	controllerDrive.Run();
+	frc::Scheduler::GetInstance()->Run();
 }
 
 // Test
