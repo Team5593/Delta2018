@@ -7,11 +7,15 @@
 #include <SmartDashboard/SmartDashboard.h>
 #include <CameraServer.h>
 #include <TimedRobot.h>
+#include <iostream>
+#include <Timer.h>
+#include <BuiltInAccelerometer.h>
 
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
+#include "CommandGroups/AutoTest.h"
 
 class Robot : public frc::TimedRobot {
 public:

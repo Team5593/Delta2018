@@ -33,7 +33,7 @@ void Robot::DisabledPeriodic() {
 
 // Autonomous
 void Robot::AutonomousInit() {
-	frc::Scheduler::GetInstance()->AddCommand(new RotateTimed(1, 0.75));
+	frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
 }
 
 void Robot::AutonomousPeriodic() {
@@ -55,7 +55,7 @@ void Robot::TestInit() {
 }
 
 void Robot::TestPeriodic() {
-	
+
 }
 
 START_ROBOT_CLASS(Robot)
