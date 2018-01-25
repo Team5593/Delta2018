@@ -12,7 +12,8 @@ DriveTrain::DriveTrain():
 	robot_drive(motor_left, motor_right),
 	encoder_left(ENC_LEFT_A, ENC_LEFT_B),
 	encoder_right(ENC_RIGHT_A, ENC_LEFT_B),
-	accel_internal()
+	accel_internal(),
+	gyro(GYRO_CHANNEL)
 {
 	AddChild("Left Motor", motor_left);
 	AddChild("Right Motor", motor_right);

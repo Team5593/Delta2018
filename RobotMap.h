@@ -13,3 +13,6 @@ const unsigned int ENC_RIGHT_B = 3;
 // Solenoids
 const unsigned int SOL_ANGLE_LEFT = 0;
 const unsigned int SOL_ANGLE_RIGHT = 1;
+
+// Gyro
+const unsigned int GYRO_CHANNEL = 0;

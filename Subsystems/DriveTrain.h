@@ -6,6 +6,7 @@
 #include <Talon.h>
 #include <Encoder.h>
 #include <BuiltInAccelerometer.h>
+#include <AnalogGyro.h>
 
 namespace frc {
 class Joystick;
@@ -34,4 +35,6 @@ public:
 	frc::Encoder encoder_right;
 
 	frc::BuiltInAccelerometer accel_internal;
+
+	frc::AnalogGyro gyro;
 };
