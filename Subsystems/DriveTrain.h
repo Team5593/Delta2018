@@ -20,6 +20,9 @@ public:
 
 	void Drive(double left, double right);
 	
+	double GetDistance();
+	void ResetDistance();
+
 	// Motors
 	frc::Talon motor_left;
 	frc::Talon motor_right;

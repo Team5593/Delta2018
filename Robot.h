@@ -10,12 +10,14 @@
 #include <iostream>
 #include <Timer.h>
 #include <DriverStation.h>
+#include <BuiltInAccelerometer.h>
 
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
+#include "Commands/MoveDistance.h"
 #include "CommandGroups/AutoTest.h"
 
 class Robot : public frc::TimedRobot {
@@ -46,4 +48,6 @@ private:
 	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
 	enum PlateSide { Left = 'L', Right = 'R' };
 	PlateSide* GetGameData();
+
+	BuiltInAccelerometer accel;
 };

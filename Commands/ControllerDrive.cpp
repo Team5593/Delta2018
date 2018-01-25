@@ -22,7 +22,7 @@ void ControllerDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ControllerDrive::Execute() {
 	auto& joystick = Robot::oi.GetJoystick();
-	Robot::drivetrain.Drive(joystick.GetRawAxis(1), -joystick.GetRawAxis(4));
+	Robot::drivetrain.Drive(-joystick.GetRawAxis(1), -joystick.GetRawAxis(4));
 }
 
 // Make this return true when this Command no longer needs to run execute()

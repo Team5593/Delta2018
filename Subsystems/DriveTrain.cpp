@@ -2,7 +2,7 @@
 
 #include <Joystick.h>
 #include <SmartDashboard/SmartDashboard.h>
-
+#include <iostream>
 #include "../Commands/ControllerDrive.h"
 
 DriveTrain::DriveTrain():
@@ -22,6 +22,10 @@ DriveTrain::DriveTrain():
 	motor_left.SetInverted(true);
 	motor_right.SetInverted(true);
 	robot_drive.SetDeadband(0.2);
+
+	const double distance_per_pulse = (1 / 14.1647899352) * 2;
+	encoder_left.SetDistancePerPulse(distance_per_pulse);
+	encoder_right.SetDistancePerPulse(distance_per_pulse);
 }
 
 void DriveTrain::InitDefaultCommand() {
@@ -29,5 +33,16 @@ void DriveTrain::InitDefaultCommand() {
 }
 
 void DriveTrain::Drive(double forward, double turn) {
-	robot_drive.ArcadeDrive(forward, turn, true);
+	robot_drive.ArcadeDrive(-forward, turn, true);
+}
+
+double DriveTrain::GetDistance() {
+	double average;
+	average = (encoder_left.GetDistance() + encoder_right.GetDistance()) * 0.5;
+	return average;
+}
+
+void DriveTrain::ResetDistance() {
+	encoder_left.Reset();
+	encoder_right.Reset();
 }
