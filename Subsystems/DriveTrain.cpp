@@ -12,16 +12,19 @@ DriveTrain::DriveTrain():
 	robot_drive(motor_left, motor_right),
 	encoder_left(ENC_LEFT_A, ENC_LEFT_B),
 	encoder_right(ENC_RIGHT_A, ENC_LEFT_B),
-	accel_internal(),
+	accelerometer(),
 	gyro(GYRO_CHANNEL)
 {
 	AddChild("Left Motor", motor_left);
 	AddChild("Right Motor", motor_right);
 	AddChild("Left Encoder", encoder_left);
 	AddChild("Right Encoder", encoder_right);
-	AddChild("Internal Accelerometer", accel_internal);
+	AddChild("Accelerometer", accelerometer);
+	AddChild("Gyro", gyro);
+
 	motor_left.SetInverted(true);
 	motor_right.SetInverted(true);
+	
 	robot_drive.SetDeadband(0.2);
 
 	const double distance_per_pulse = (1 / 14.1647899352) * 2;
@@ -46,4 +49,32 @@ double DriveTrain::GetDistance() {
 void DriveTrain::ResetDistance() {
 	encoder_left.Reset();
 	encoder_right.Reset();
+}
+
+frc::PWMSpeedController& DriveTrain::GetMotorLeft() {
+	return motor_left;
+}
+
+frc::PWMSpeedController& DriveTrain::GetMotorRight() {
+	return motor_right;
+}
+
+frc::DifferentialDrive& DriveTrain::GetRobotDrive() {
+	return robot_drive;
+}
+
+frc::Encoder& DriveTrain::GetEncoderLeft() {
+	return encoder_left;
+}
+
+frc::Encoder& DriveTrain::GetEncoderRight() {
+	return encoder_right;
+}
+
+frc::Accelerometer& DriveTrain::GetAccelerometer() {
+	return accelerometer;
+}
+
+frc::GyroBase& DriveTrain::GetGyro() {
+	return gyro;
 }

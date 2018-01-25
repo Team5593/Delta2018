@@ -2,15 +2,11 @@
 
 #include "../RobotMap.h"
 #include <Commands/Subsystem.h>
-#include <Drive/DifferentialDrive.h>
 #include <Talon.h>
+#include <Drive/DifferentialDrive.h>
 #include <Encoder.h>
 #include <BuiltInAccelerometer.h>
 #include <AnalogGyro.h>
-
-namespace frc {
-class Joystick;
-}
 
 class DriveTrain: public frc::Subsystem
 {
@@ -24,17 +20,21 @@ public:
 	double GetDistance();
 	void ResetDistance();
 
-	// Motors
+	frc::PWMSpeedController& GetMotorLeft();
+	frc::PWMSpeedController& GetMotorRight();
+	frc::DifferentialDrive& GetRobotDrive();
+	frc::Encoder& GetEncoderLeft();
+	frc::Encoder& GetEncoderRight();
+	frc::Accelerometer& GetAccelerometer();
+	frc::GyroBase& GetGyro();
+
+private:
 	frc::Talon motor_left;
 	frc::Talon motor_right;
-
 	frc::DifferentialDrive robot_drive;
 
-	// Sensors
 	frc::Encoder encoder_left;
 	frc::Encoder encoder_right;
-
-	frc::BuiltInAccelerometer accel_internal;
-
+	frc::BuiltInAccelerometer accelerometer;
 	frc::AnalogGyro gyro;
 };
