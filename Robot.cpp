@@ -37,7 +37,7 @@ void Robot::AutonomousInit() {
 	if (sides[Plate::SwitchClose] == PlateSide::Left) {
 		frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
 	}
-	else {
+	else { // Right
 		frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
 	}
 }
