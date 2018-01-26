@@ -18,6 +18,7 @@
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
 #include "Commands/MoveDistance.h"
+#include "Commands/RotateAngle.h"
 #include "CommandGroups/AutoTest.h"
 
 class Robot : public frc::TimedRobot {

@@ -17,5 +17,5 @@ AutoTest::AutoTest() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	AddSequential(new MoveDistance(18, 0.6));
+	AddSequential(new RotateAngle(90, 0.8, true));
 }

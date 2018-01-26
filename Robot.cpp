@@ -15,6 +15,7 @@ OI Robot::oi;
 // Robot
 void Robot::RobotInit() {
 	CameraServer::GetInstance()->StartAutomaticCapture("Front Camera" , 0);
+	drivetrain.GetGyro().Calibrate();
 }
 
 void Robot::RobotPeriodic() {
@@ -48,7 +49,7 @@ void Robot::AutonomousPeriodic() {
 
 // Teleop
 void Robot::TeleopInit() {
-
+	frc::Scheduler::GetInstance()->RemoveAll();
 }
 
 void Robot::TeleopPeriodic() {
