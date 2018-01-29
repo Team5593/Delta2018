@@ -16,6 +16,7 @@ void MoveDistance::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void MoveDistance::Execute() {
 	if (distance < 0) speed = -speed;
+	distance = fabs(distance);
 
 	Robot::drivetrain.Drive(speed, 0);
 }
