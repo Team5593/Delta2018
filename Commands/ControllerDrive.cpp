@@ -23,8 +23,11 @@ void ControllerDrive::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ControllerDrive::Execute() {
 	auto& joystick = Robot::oi.GetJoystick();
-	Robot::drivetrain.Drive(-joystick.GetRawAxis(1), joystick.GetRawAxis(4));
-	std::cout << Robot::drivetrain.GetEncoderRight().GetDistance() << std::endl;
+
+	double speed = -joystick.GetRawAxis(1);
+	double heading = joystick.GetRawAxis(4);
+
+	Robot::drivetrain.Drive(speed, heading);
 }
 
 // Make this return true when this Command no longer needs to run execute()
