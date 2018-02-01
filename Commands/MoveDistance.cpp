@@ -18,7 +18,13 @@ void MoveDistance::Execute() {
 	if (distance < 0) speed = -speed;
 	distance = fabs(distance);
 
-	Robot::drivetrain.Drive(speed, 0);
+	double heading;
+	double distance_left = Robot::drivetrain.GetEncoderLeft().GetDistance();
+	double distance_right = Robot::drivetrain.GetEncoderRight().GetDistance();
+
+	heading = (distance_left - distance_right) / 3;
+
+	Robot::drivetrain.Drive(speed, heading);
 }
 
 // Make this return true when this Command no longer needs to run execute()

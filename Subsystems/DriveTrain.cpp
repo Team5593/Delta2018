@@ -11,7 +11,7 @@ DriveTrain::DriveTrain():
 	motor_right(MTR_DRIVE_RIGHT),
 	robot_drive(motor_left, motor_right),
 	encoder_left(ENC_LEFT_A, ENC_LEFT_B),
-	encoder_right(ENC_RIGHT_A, ENC_LEFT_B),
+	encoder_right(ENC_RIGHT_A, ENC_RIGHT_B),
 	accelerometer(),
 	gyro(GYRO_CHANNEL)
 {
@@ -22,14 +22,14 @@ DriveTrain::DriveTrain():
 	AddChild("Accelerometer", accelerometer);
 	AddChild("Gyro", gyro);
 
-	motor_left.SetInverted(true);
-	motor_right.SetInverted(true);
+	motor_left.SetInverted(false);
+	motor_right.SetInverted(false);
 	
 	robot_drive.SetDeadband(0.2);
 
-	const double distance_per_pulse = (1 / 14.1647899352) * 2;
+	const double distance_per_pulse = 1.0/50.0;
 	encoder_left.SetDistancePerPulse(distance_per_pulse);
-	encoder_right.SetDistancePerPulse(distance_per_pulse);
+	encoder_right.SetDistancePerPulse(-distance_per_pulse);
 }
 
 void DriveTrain::InitDefaultCommand() {
