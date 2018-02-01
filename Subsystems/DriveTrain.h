@@ -20,13 +20,13 @@ public:
 	double GetDistance();
 	void ResetDistance();
 
-	frc::PWMSpeedController& GetMotorLeft();
-	frc::PWMSpeedController& GetMotorRight();
-	frc::DifferentialDrive& GetRobotDrive();
-	frc::Encoder& GetEncoderLeft();
-	frc::Encoder& GetEncoderRight();
-	frc::Accelerometer& GetAccelerometer();
-	frc::GyroBase& GetGyro();
+	frc::PWMSpeedController& 	GetMotorLeft();
+	frc::PWMSpeedController& 	GetMotorRight();
+	frc::DifferentialDrive& 	GetRobotDrive();
+	frc::Encoder& 				GetEncoderLeft();
+	frc::Encoder& 				GetEncoderRight();
+	frc::Accelerometer& 		GetAccelerometer();
+	frc::GyroBase& 				GetGyro();
 
 private:
 	frc::Talon motor_left;
