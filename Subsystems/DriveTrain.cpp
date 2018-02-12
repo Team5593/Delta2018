@@ -4,6 +4,7 @@
 #include <SmartDashboard/SmartDashboard.h>
 #include <iostream>
 #include "../Commands/ControllerDrive.h"
+#include <SPI.h>
 
 DriveTrain::DriveTrain():
 	frc::Subsystem("DriveTrain"),
@@ -13,7 +14,7 @@ DriveTrain::DriveTrain():
 	encoder_left(ENC_LEFT_A, ENC_LEFT_B),
 	encoder_right(ENC_RIGHT_A, ENC_RIGHT_B),
 	accelerometer(),
-	gyro(GYRO_CHANNEL)
+	gyro(SPI::Port::kOnboardCS2)
 {
 	AddChild("Left Motor", motor_left);
 	AddChild("Right Motor", motor_right);
@@ -27,7 +28,7 @@ DriveTrain::DriveTrain():
 	
 	robot_drive.SetDeadband(0.2);
 
-	const double distance_per_pulse = 1.0/50.0;
+	const double distance_per_pulse = (6 * 3.14) / 250;
 	encoder_left.SetDistancePerPulse(distance_per_pulse);
 	encoder_right.SetDistancePerPulse(-distance_per_pulse);
 }

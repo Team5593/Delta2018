@@ -1,49 +1,42 @@
 #include "RotateAngle.h"
+#include <iostream>
 
-RotateAngle::RotateAngle(double angle, double speed, bool absolute) :
+RotateAngle::RotateAngle(double angle, double speed) :
+	pid(1.0, 0.0, 0.0, &Robot::drivetrain.GetGyro(), new TurnDriveTrain(), 0.05),
 	angle(angle),
-	speed(speed),
-	absolute(absolute)
+	speed(speed)
 {
 	angle = fmod(angle, 360);
 	speed = fabs(speed);
-	// Use Requires() here to declare subsystem dependencies
+
 	Requires(&Robot::drivetrain);
+
+	pid.SetOutputRange(-speed, speed);
 }
 
-// Called just before this Command runs the first time
 void RotateAngle::Initialize() {
-	if (!absolute)	// relative
-		angle += Robot::drivetrain.GetGyro().GetAngle();
-		angle = fmod(angle, 360);
+	pid.SetSetpoint(angle);
+	pid.Enable();
 }
 
-// Called repeatedly when this Command is scheduled to run
 void RotateAngle::Execute() {
-	double current_angle = fmod(Robot::drivetrain.GetGyro().GetAngle(), 360);
-
-	if (fmod(angle + current_angle, 360) > 180) {
-		Robot::drivetrain.Drive(0, speed); // right
-	}
-	else {
-		Robot::drivetrain.Drive(0, -speed); // left
-	}
 
 }
 
-// Make this return true when this Command no longer needs to run execute()
-bool RotateAngle::IsFinished() {
-	double current_angle = fmod(Robot::drivetrain.GetGyro().GetAngle(), 360);
-	return fabs(current_angle - angle) <= 10;
-}
-
-// Called once after isFinished returns true
 void RotateAngle::End() {
+	pid.Disable();
+}
 
+bool RotateAngle::IsFinished() {
+	return pid.OnTarget();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void RotateAngle::Interrupted() {
+	End();
+}
 
+void TurnDriveTrain::PIDWrite(double output) {
+	Robot::drivetrain.Drive(0.0, output);
 }

@@ -1,4 +1,5 @@
-#include "Shooter.h"
+#include <Subsystems/Shooter.h>
+#include <iostream>
 
 Shooter::Shooter()
 	: frc::Subsystem("Shooter")
@@ -13,20 +14,10 @@ void Shooter::InitDefaultCommand() {
 void Shooter::SetFlywheels(double speed) {
 	motor_flywheel_left.Set(speed);
 	motor_flywheel_right.Set(speed);
+	std::cout << "That's pretty fly" << std::endl;
 }
 
-void Shooter::SetPivotUp() {
-	solenoid_pivot.Set(frc::DoubleSolenoid::Value::kForward);
-}
-
-void Shooter::SetPivotDown() {
-	solenoid_pivot.Set(frc::DoubleSolenoid::Value::kReverse);
-}
-
-void Shooter::SetPivotOff() {
-	solenoid_pivot.Set(frc::DoubleSolenoid::Value::kOff);
-}
-
-void Shooter::SetPivotState(frc::DoubleSolenoid::Value value) {
-	solenoid_pivot.Set(value);
+frc::DoubleSolenoid& Shooter::GetPivotSolenoid()
+{
+	return solenoid_pivot;
 }

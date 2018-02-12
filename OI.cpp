@@ -9,8 +9,12 @@
 
 #include <WPILib.h>
 
+#include <Commands/TogglePivot.h>
+#include <Commands/ShootBox.h>
+
 OI::OI() {
-	// Process operator interface input here.
+	button_shooter_pivot.WhenPressed(new TogglePivot());
+	button_shoot.WhenPressed(new ShootBox(2));
 }
 
 frc::Joystick& OI::GetJoystick() {

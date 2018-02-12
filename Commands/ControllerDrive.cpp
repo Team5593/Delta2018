@@ -24,10 +24,11 @@ void ControllerDrive::Initialize() {
 void ControllerDrive::Execute() {
 	auto& joystick = Robot::oi.GetJoystick();
 
-	double speed = -joystick.GetRawAxis(1);
+	double speed = joystick.GetRawAxis(1);
 	double heading = joystick.GetRawAxis(4);
 
 	Robot::drivetrain.Drive(speed, heading);
+	std::cout << Robot::drivetrain.GetGyro().GetRate() << std::endl;
 }
 
 // Make this return true when this Command no longer needs to run execute()

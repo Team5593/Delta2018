@@ -3,10 +3,11 @@
 #include "../RobotMap.h"
 #include <Commands/Subsystem.h>
 #include <Talon.h>
+#include <PWMSpeedController.h>
 #include <Drive/DifferentialDrive.h>
 #include <Encoder.h>
 #include <BuiltInAccelerometer.h>
-#include <AnalogGyro.h>
+#include <ADXRS450_Gyro.h>
 
 class DriveTrain: public frc::Subsystem
 {
@@ -36,5 +37,6 @@ private:
 	frc::Encoder encoder_left;
 	frc::Encoder encoder_right;
 	frc::BuiltInAccelerometer accelerometer;
-	frc::AnalogGyro gyro;
+	frc::ADXRS450_Gyro gyro;
+
 };

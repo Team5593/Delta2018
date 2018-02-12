@@ -1,20 +1,30 @@
 #ifndef RotateAngle_H
 #define RotateAngle_H
 
-#include <Commands/Command.h>
 #include "../Robot.h"
+#include <Commands/Command.h>
+#include <PIDController.h>
+#include <PIDOutput.h>
+#include <PIDSource.h>
 
 class RotateAngle : public frc::Command {
 public:
-	RotateAngle(double angle, double speed, bool absolute = true);
+	RotateAngle(double angle, double speed);
 	void Initialize();
 	void Execute();
-	bool IsFinished();
 	void End();
+	bool IsFinished();
 	void Interrupted();
 private:
-	double angle, speed;
-	bool absolute;
+	frc::PIDController pid;
+	double angle;
+	double speed;
+};
+
+class TurnDriveTrain : public PIDOutput {
+public:
+	virtual ~TurnDriveTrain() = default;
+	void PIDWrite(double output);
 };
 
 #endif  // RotateAngle_H

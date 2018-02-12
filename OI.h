@@ -18,4 +18,6 @@ public:
 private:
 	frc::Joystick x_joystick{0}; // xbox controller
 
+	frc::JoystickButton button_shooter_pivot{&x_joystick, 4};
+	frc::JoystickButton button_shoot{&x_joystick, 1};
 };
