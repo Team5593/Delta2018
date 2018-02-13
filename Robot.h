@@ -20,6 +20,8 @@
 #include "Commands/MoveDistance.h"
 #include "Commands/RotateAngle.h"
 #include "CommandGroups/AutoTest.h"
+#include "Commands/ShootBox.h"
+#include "Commands/SpinFeeders.h"
 
 class Robot : public frc::TimedRobot {
 public:

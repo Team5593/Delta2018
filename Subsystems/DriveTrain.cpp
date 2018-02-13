@@ -52,30 +52,10 @@ void DriveTrain::ResetDistance() {
 	encoder_right.Reset();
 }
 
-frc::PWMSpeedController& DriveTrain::GetMotorLeft() {
-	return motor_left;
-}
-
-frc::PWMSpeedController& DriveTrain::GetMotorRight() {
-	return motor_right;
-}
-
-frc::DifferentialDrive& DriveTrain::GetRobotDrive() {
-	return robot_drive;
-}
-
-frc::Encoder& DriveTrain::GetEncoderLeft() {
-	return encoder_left;
-}
-
-frc::Encoder& DriveTrain::GetEncoderRight() {
-	return encoder_right;
-}
-
-frc::Accelerometer& DriveTrain::GetAccelerometer() {
-	return accelerometer;
-}
-
-frc::GyroBase& DriveTrain::GetGyro() {
-	return gyro;
-}
+frc::PWMSpeedController& DriveTrain::GetMotorLeft()		{ return motor_left; }
+frc::PWMSpeedController& DriveTrain::GetMotorRight()	{ return motor_right; }
+frc::DifferentialDrive& DriveTrain::GetRobotDrive()		{ return robot_drive; }
+frc::Encoder& DriveTrain::GetEncoderLeft()				{ return encoder_left; }
+frc::Encoder& DriveTrain::GetEncoderRight()				{ return encoder_right; }
+frc::Accelerometer& DriveTrain::GetAccelerometer()		{ return accelerometer; }
+frc::GyroBase& DriveTrain::GetGyro()					{ return gyro; }

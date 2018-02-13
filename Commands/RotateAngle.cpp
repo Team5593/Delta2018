@@ -1,5 +1,4 @@
 #include "RotateAngle.h"
-#include <iostream>
 
 RotateAngle::RotateAngle(double angle, double speed) :
 	pid(1.0, 0.0, 0.0, &Robot::drivetrain.GetGyro(), new TurnDriveTrain(), 0.05),
@@ -31,8 +30,6 @@ bool RotateAngle::IsFinished() {
 	return pid.OnTarget();
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 void RotateAngle::Interrupted() {
 	End();
 }

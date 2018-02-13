@@ -20,4 +20,5 @@ private:
 
 	frc::JoystickButton button_shooter_pivot{&x_joystick, 4};
 	frc::JoystickButton button_shoot{&x_joystick, 1};
+	frc::JoystickButton button_feed{&x_joystick, 2};
 };

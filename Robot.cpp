@@ -49,8 +49,6 @@ void Robot::AutonomousPeriodic() {
 
 // Teleop
 void Robot::TeleopInit() {
-	drivetrain.GetGyro().Calibrate();
-	drivetrain.GetGyro().Reset();
 	frc::Scheduler::GetInstance()->RemoveAll();
 }
 
