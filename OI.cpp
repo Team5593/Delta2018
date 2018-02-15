@@ -13,12 +13,14 @@
 #include <Commands/ShootBox.h>
 #include <Commands/SpinFeeders.h>
 
+using namespace frc;
+
 OI::OI() {
-	button_shooter_pivot.WhenPressed(new TogglePivot(1));
+	button_shooter_pivot.WhenPressed(new TogglePivot());
 	button_shoot.WhenPressed(new ShootBox(4));
 	button_feed.WhenPressed(new SpinFeeders(3));
 }
 
-frc::Joystick& OI::GetJoystick() {
-	return x_joystick;
+XboxController& OI::GetController() {
+	return controller;
 }

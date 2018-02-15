@@ -16,6 +16,8 @@ OI Robot::oi;
 // Robot
 void Robot::RobotInit() {
 	CameraServer::GetInstance()->StartAutomaticCapture("Front Camera" , 0);
+	drivetrain.GetGyro().Calibrate();
+	drivetrain.GetGyro().Reset();
 }
 
 void Robot::RobotPeriodic() {
@@ -62,7 +64,6 @@ void Robot::TestInit() {
 }
 
 void Robot::TestPeriodic() {
-
 }
 
 // Game Data

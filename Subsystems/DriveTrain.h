@@ -7,7 +7,7 @@
 #include <Drive/DifferentialDrive.h>
 #include <Encoder.h>
 #include <BuiltInAccelerometer.h>
-#include <ADXRS450_Gyro.h>
+#include <AnalogGyro.h>
 
 class DriveTrain: public frc::Subsystem
 {
@@ -37,6 +37,6 @@ private:
 	frc::Encoder encoder_left;
 	frc::Encoder encoder_right;
 	frc::BuiltInAccelerometer accelerometer;
-	frc::ADXRS450_Gyro gyro;
+	frc::AnalogGyro gyro;
 
 };

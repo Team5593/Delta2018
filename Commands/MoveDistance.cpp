@@ -1,44 +1,36 @@
 #include "MoveDistance.h"
 
 MoveDistance::MoveDistance(double distance, double speed):
+	pid(1.0, 1.0, 0.5, &Robot::drivetrain.GetEncoderLeft(), new MoveDriveTrain(), 0.05),
 	distance(distance),
 	speed(speed)
 {
-	// Use Requires() here to declare subsystem dependencies
 	Requires(&Robot::drivetrain);
+	
+	speed = fabs(speed);
+	pid.SetOutputRange(-speed, speed);
+	pid.SetSetpoint(distance);
+	pid.SetAbsoluteTolerance(1);
 }
 
-// Called just before this Command runs the first time
 void MoveDistance::Initialize() {
-	Robot::drivetrain.ResetDistance();
+	Robot::drivetrain.GetEncoderLeft().Reset();
+	pid.Enable();
 }
 
-// Called repeatedly when this Command is scheduled to run
 void MoveDistance::Execute() {
-	if (distance < 0) speed = -speed;
-	distance = fabs(distance);
-
-	double heading;
-	double distance_left = Robot::drivetrain.GetEncoderLeft().GetDistance();
-	double distance_right = Robot::drivetrain.GetEncoderRight().GetDistance();
-
-	heading = (distance_left - distance_right) / 3;
-
-	Robot::drivetrain.Drive(speed, heading);
 }
 
-// Make this return true when this Command no longer needs to run execute()
 bool MoveDistance::IsFinished() {
-	return fabs(Robot::drivetrain.GetDistance()) >= fabs(distance);
+	return pid.OnTarget();
 }
 
-// Called once after isFinished returns true
 void MoveDistance::End() {
-
+	pid.Disable();
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void MoveDistance::Interrupted() {
+void MoveDistance::Interrupted() { End(); }
 
+void MoveDriveTrain::PIDWrite(double output) {
+	Robot::drivetrain.Drive(output, 0.0);
 }

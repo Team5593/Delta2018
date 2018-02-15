@@ -6,41 +6,33 @@
 /*----------------------------------------------------------------------------*/
 
 #include "ControllerDrive.h"
+#include <Robot.h>
 
-#include "../Robot.h"
-#include <iostream>
+using namespace frc;
 
-ControllerDrive::ControllerDrive()
-    : frc::Command("ControllerDrive")
+ControllerDrive::ControllerDrive() :
+	Command("ControllerDrive")
 {
 	Requires(&Robot::drivetrain);
 }
 
-void ControllerDrive::Initialize() {
+void ControllerDrive::Initialize() { }
 
-}
-
-// Called repeatedly when this Command is scheduled to run
 void ControllerDrive::Execute() {
-	auto& joystick = Robot::oi.GetJoystick();
+	auto& joystick = Robot::oi.GetController();
 
-	double speed = joystick.GetRawAxis(1);
-	double heading = joystick.GetRawAxis(4);
+	auto speed = joystick.GetRawAxis(1);
+	auto heading = joystick.GetRawAxis(4);
 
 	Robot::drivetrain.Drive(speed, heading);
-	std::cout << Robot::drivetrain.GetGyro().GetRate() << std::endl;
 }
 
-// Make this return true when this Command no longer needs to run execute()
 bool ControllerDrive::IsFinished() {
 	return false;
 }
 
-// Called once after isFinished returns true
 void ControllerDrive::End() {
 	Robot::drivetrain.Drive(0, 0);
 }
 
-void ControllerDrive::Interrupted() {
-	End();
-}
+void ControllerDrive::Interrupted() { End(); }

@@ -1,25 +1,25 @@
 #include "RotateAngle.h"
 
 RotateAngle::RotateAngle(double angle, double speed) :
-	pid(1.0, 0.0, 0.0, &Robot::drivetrain.GetGyro(), new TurnDriveTrain(), 0.05),
+	pid(1.0, 4.0, 0.9, &Robot::drivetrain.GetGyro(), new TurnDriveTrain(), 0.05),
 	angle(angle),
 	speed(speed)
 {
+	Requires(&Robot::drivetrain);
+	
 	angle = fmod(angle, 360);
 	speed = fabs(speed);
-
-	Requires(&Robot::drivetrain);
-
 	pid.SetOutputRange(-speed, speed);
+	pid.SetSetpoint(angle);
+	pid.SetAbsoluteTolerance(3);
 }
 
 void RotateAngle::Initialize() {
-	pid.SetSetpoint(angle);
+	Robot::drivetrain.GetGyro().Reset();
 	pid.Enable();
 }
 
 void RotateAngle::Execute() {
-
 }
 
 void RotateAngle::End() {

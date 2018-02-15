@@ -1,24 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #pragma once
 
-#include <Joystick.h>
+#include <XboxController.h>
 #include <Buttons/JoystickButton.h>
+
+using namespace frc;
 
 class OI {
 public:
 	OI();
 
-	frc::Joystick& GetJoystick();
+	XboxController& GetController();
 private:
-	frc::Joystick x_joystick{0}; // xbox controller
+	XboxController controller{0}; // xbox controller
 
-	frc::JoystickButton button_shooter_pivot{&x_joystick, 4};
-	frc::JoystickButton button_shoot{&x_joystick, 1};
-	frc::JoystickButton button_feed{&x_joystick, 2};
+	JoystickButton button_shooter_pivot{&controller, 4};
+	JoystickButton button_shoot{&controller, 1};
+	JoystickButton button_feed{&controller, 2};
 };

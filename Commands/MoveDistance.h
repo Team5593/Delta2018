@@ -1,10 +1,14 @@
 #ifndef MoveDistance_H
 #define MoveDistance_H
 
-#include <Commands/Command.h>
 #include "../Robot.h"
+#include <Commands/Command.h>
+#include <PIDController.h>
+#include <PIDOutput.h>
 
-class MoveDistance : public frc::Command {
+using namespace frc;
+
+class MoveDistance : public Command {
 public:
 	MoveDistance(double distance, double speed);
 	void Initialize();
@@ -13,8 +17,15 @@ public:
 	void End();
 	void Interrupted();
 private:
+	PIDController pid;
 	double distance;
 	double speed;
+};
+
+class MoveDriveTrain : public PIDOutput {
+public:
+	virtual ~MoveDriveTrain() = default;
+	void PIDWrite(double output);
 };
 
 #endif  // MoveDistance_H
