@@ -15,19 +15,19 @@
 #include "OI.h"
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
+#include "Subsystems/Grompers.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
 #include "Commands/MoveDistance.h"
 #include "Commands/RotateAngle.h"
 #include "CommandGroups/AutoTest.h"
-#include "Commands/ShootBox.h"
-#include "Commands/SpinFeeders.h"
 
 class Robot : public frc::TimedRobot {
 public:
 	// Subsystems
 	static DriveTrain drivetrain;
 	static Shooter shooter;
+	static Grompers grompers;
 	// Operator Interface
 	static OI oi;
 

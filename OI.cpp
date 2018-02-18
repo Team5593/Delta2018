@@ -9,16 +9,18 @@
 
 #include <WPILib.h>
 
-#include <Commands/TogglePivot.h>
-#include <Commands/ShootBox.h>
-#include <Commands/SpinFeeders.h>
+#include <Commands/OpenForBox.h>
+#include <Commands/CollectBox.h>
+#include <CommandGroups/LoadBox.h>
+#include <CommandGroups/ShootBox.h>
 
 using namespace frc;
 
 OI::OI() {
-	button_shooter_pivot.WhenPressed(new TogglePivot());
-	button_shoot.WhenPressed(new ShootBox(4));
-	button_feed.WhenPressed(new SpinFeeders(3));
+	button_open.WhenPressed(new OpenForBox());
+	button_close.WhenPressed(new CollectBox());
+	button_load.WhenPressed(new LoadBox());
+	button_shoot.WhenPressed(new ShootBox());
 }
 
 XboxController& OI::GetController() {

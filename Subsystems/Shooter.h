@@ -17,6 +17,8 @@ public:
 
 	void SetFeeder(double speed);
 
+	void SetPivot(bool state);
+
 	frc::DoubleSolenoid& GetPivotSolenoid();
 
 private:
@@ -28,5 +30,5 @@ private:
 	frc::Talon motor_feeder_right{5};
 
 	// Solenoids (pneumatics)
-	frc::DoubleSolenoid solenoid_pivot{0, 1};
+	frc::DoubleSolenoid solenoid_pivot{2, 3};
 };

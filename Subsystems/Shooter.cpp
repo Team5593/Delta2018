@@ -4,8 +4,8 @@
 Shooter::Shooter()
 	: frc::Subsystem("Shooter")
 {
-	motor_feeder_left.SetInverted(true);
-	motor_feeder_right.SetInverted(false);
+	motor_feeder_left.SetInverted(false);
+	motor_feeder_right.SetInverted(true);
 }
 
 void Shooter::InitDefaultCommand() {
@@ -21,6 +21,15 @@ void Shooter::SetFlywheels(double speed) {
 void Shooter::SetFeeder(double speed) {
 	motor_feeder_left.Set(speed);
 	motor_feeder_right.Set(speed);
+}
+
+void Shooter::SetPivot(bool state) {
+	if (state == true) {
+		solenoid_pivot.Set(DoubleSolenoid::Value::kForward);
+	}
+	else {
+		solenoid_pivot.Set(DoubleSolenoid::Value::kOff);
+	}
 }
 
 frc::DoubleSolenoid& Shooter::GetPivotSolenoid()

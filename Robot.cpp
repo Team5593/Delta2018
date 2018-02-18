@@ -10,6 +10,7 @@
 // Subsystems
 DriveTrain Robot::drivetrain;
 Shooter Robot::shooter;
+Grompers Robot::grompers;
 // Operator Interface
 OI Robot::oi;
 
