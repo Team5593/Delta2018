@@ -5,6 +5,8 @@ const unsigned int MTR_DRIVE_LEFT = 0;
 const unsigned int MTR_DRIVE_RIGHT = 1;
 const unsigned int MTR_FLYWHEEL_LEFT = 2;
 const unsigned int MTR_FLYWHEEL_RIGHT = 3;
+const unsigned int MTR_FEEDER_LEFT = 4;
+const unsigned int MTR_FEEDER_RIGHT = 5;
 const unsigned int MTR_GROMPER_LEFT = 6;
 const unsigned int MTR_GROMPER_RIGHT = 7;
 
