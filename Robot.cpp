@@ -11,6 +11,7 @@
 DriveTrain Robot::drivetrain;
 Shooter Robot::shooter;
 Grompers Robot::grompers;
+Feeder Robot::feeder;
 // Operator Interface
 OI Robot::oi;
 
@@ -18,32 +19,35 @@ OI Robot::oi;
 void Robot::RobotInit() {
 	CameraServer::GetInstance()->StartAutomaticCapture("Front Camera" , 0);
 	drivetrain.GetGyro().Calibrate();
-	drivetrain.GetGyro().Reset();
 }
 
 void Robot::RobotPeriodic() {
 
 }
 
-// Disabled
-void Robot::DisabledInit() {
-
-}
-
-void Robot::DisabledPeriodic() {
-
-}
-
 // Autonomous
 void Robot::AutonomousInit() {
-	PlateSide* sides = GetGameData();
+	Command* autoCommand;
+	Position* sides = GetGameData();
+	Position switch_side = sides[Plate::SwitchClose];
+	robot_position = Position::Left;
 
-	if (sides[Plate::SwitchClose] == PlateSide::Left) {
-		frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
+	if (switch_side == Position::Left) { // Left
+		switch (robot_position) {
+			case Position::Left: 	autoCommand = new AutoLobBoxRight; break;
+			case Position::Middle: 	/*autoCommand = new AutoLobBoxRight;*/ break;
+			case Position::Right: 	autoCommand = new BasicAuto; break;
+		}
 	}
 	else { // Right
-		frc::Scheduler::GetInstance()->AddCommand(new AutoTest);
+		switch (robot_position) {
+			case Position::Left: 	autoCommand = new BasicAuto; break;
+			case Position::Middle: 	/*autoCommand = new AutoLobBoxRight;*/ break;
+			case Position::Right: 	autoCommand = new AutoLobBoxRight; break;
+		}
 	}
+
+	frc::Scheduler::GetInstance()->AddCommand(autoCommand);
 }
 
 void Robot::AutonomousPeriodic() {
@@ -65,16 +69,26 @@ void Robot::TestInit() {
 }
 
 void Robot::TestPeriodic() {
+
+}
+
+// Disabled
+void Robot::DisabledInit() {
+
+}
+
+void Robot::DisabledPeriodic() {
+
 }
 
 // Game Data
-Robot::PlateSide* Robot::GetGameData() {
-	static PlateSide sides[3];
+Robot::Position* Robot::GetGameData() {
+	static Position sides[3];
 
 	std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
 	for (int i = 0; i < 3; i++) {
-		sides[i] = PlateSide(gameData[i]);
+		sides[i] = Position(gameData[i]);
 	}
 
 	return sides;

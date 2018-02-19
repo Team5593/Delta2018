@@ -13,8 +13,8 @@ public:
 private:
 	XboxController controller{0}; // xbox controller
 
-	JoystickButton button_open{&controller, 1};
-	JoystickButton button_close{&controller, 2};
-	JoystickButton button_load{&controller, 3};
-	JoystickButton button_shoot{&controller, 4};
+	JoystickButton button_a{&controller, 1};
+	JoystickButton button_b{&controller, 2};
+	JoystickButton button_x{&controller, 3};
+	JoystickButton button_y{&controller, 4};
 };

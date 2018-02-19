@@ -28,7 +28,7 @@ DriveTrain::DriveTrain():
 	
 	robot_drive.SetDeadband(0.2);
 
-	const double distance_per_pulse = (6 * 3.14) / 250;
+	const double distance_per_pulse = -(6 * 3.14) / 250;
 	encoder_left.SetDistancePerPulse(distance_per_pulse);
 	encoder_right.SetDistancePerPulse(-distance_per_pulse);
 }
@@ -38,7 +38,7 @@ void DriveTrain::InitDefaultCommand() {
 }
 
 void DriveTrain::Drive(double forward, double turn) {
-	robot_drive.ArcadeDrive(-forward, turn, true);
+	robot_drive.ArcadeDrive(forward, turn, true);
 }
 
 double DriveTrain::GetDistance() {

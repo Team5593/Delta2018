@@ -1,17 +1,16 @@
-#ifndef PivotUp_H
-#define PivotUp_H
+#ifndef PreSpin_H
+#define PreSpin_H
 
 #include <Commands/TimedCommand.h>
 #include <Robot.h>
 
-class PivotUp : public frc::TimedCommand{
+class PreSpin : public frc::TimedCommand {
 public:
-	PivotUp();
+	PreSpin();
 	void Initialize();
 	void Execute();
-	bool IsFinished();
 	void End();
 	void Interrupted();
 };
 
-#endif // PivotUp_H
+#endif  // PreSpin_H

@@ -8,16 +8,16 @@
 #include <CameraServer.h>
 #include <TimedRobot.h>
 #include <iostream>
-#include <Timer.h>
 #include <DriverStation.h>
-#include <BuiltInAccelerometer.h>
 
 #include "OI.h"
+
+// Subsystems
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
 #include "Subsystems/Grompers.h"
-#include "CommandGroups/AutoTest.h"
-#include "CommandGroups/LoadBox.h"
+#include "Subsystems/Feeder.h"
+
 #include "CommandGroups/ShootBox.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
@@ -28,6 +28,13 @@
 #include "Commands/PivotUp.h"
 #include "Commands/PivotDown.h"
 #include "Commands/FeedBox.h"
+#include "Commands/SpinFlyWheels.h"
+#include "Commands/PreSpin.h"
+#include "Commands/SpitOutBox.h"
+// Autonomous
+#include "CommandGroups/BasicAuto.h"
+#include "CommandGroups/AutoLobBoxRight.h"
+#include "CommandGroups/AutoTest.h"
 
 class Robot : public frc::TimedRobot {
 public:
@@ -35,29 +42,26 @@ public:
 	static DriveTrain drivetrain;
 	static Shooter shooter;
 	static Grompers grompers;
+	static Feeder feeder;
 	// Operator Interface
 	static OI oi;
 
 private:
-	// Robot
+	// Robot States
 	void RobotInit() override;
 	void RobotPeriodic() override;
-	// Disabled
 	void DisabledInit() override;
 	void DisabledPeriodic() override;
-	// Autonomous
 	void AutonomousInit() override;
 	void AutonomousPeriodic() override;
-	// Teleop
 	void TeleopInit() override;
 	void TeleopPeriodic() override;
-	// Test
 	void TestInit() override;
 	void TestPeriodic() override;
-	// Game Data
-	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
-	enum PlateSide { Left = 'L', Right = 'R' };
-	PlateSide* GetGameData();
 
-	BuiltInAccelerometer accel;
+	// Pre Game
+	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
+	enum Position { Left = 'L', Middle = 'M', Right = 'R' };
+	Position* GetGameData();
+	Position robot_position;
 };

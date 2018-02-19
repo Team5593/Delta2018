@@ -15,8 +15,6 @@ public:
 
 	void SetFlywheels(double speed);
 
-	void SetFeeder(double speed);
-
 	void SetPivot(bool state);
 
 	frc::DoubleSolenoid& GetPivotSolenoid();
@@ -25,9 +23,6 @@ private:
 	// Motors
 	frc::Talon motor_flywheel_left{2};
 	frc::Talon motor_flywheel_right{3};
-
-	frc::Talon motor_feeder_left{4};
-	frc::Talon motor_feeder_right{5};
 
 	// Solenoids (pneumatics)
 	frc::DoubleSolenoid solenoid_pivot{2, 3};

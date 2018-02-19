@@ -1,6 +1,8 @@
 #include "PivotUp.h"
 
-PivotUp::PivotUp() {
+PivotUp::PivotUp():
+	TimedCommand(1)
+{
 	Requires(&Robot::shooter);
 }
 
@@ -9,7 +11,7 @@ void PivotUp::Initialize() {
 }
 
 void PivotUp::Execute() {
-	
+	Robot::shooter.SetPivot(true);
 }
 
 bool PivotUp::IsFinished() {

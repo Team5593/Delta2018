@@ -3,7 +3,7 @@
 FeedBox::FeedBox(double timeout):
 	TimedCommand(2)
 {
-	Requires(&Robot::shooter);
+	Requires(&Robot::feeder);
 }
 
 void FeedBox::Initialize() {
@@ -11,13 +11,13 @@ void FeedBox::Initialize() {
 }
 
 void FeedBox::Execute() {
-	Robot::shooter.SetFeeder(0.5);
+	Robot::feeder.Forward();
 }
 
 void FeedBox::End() {
-
+	Robot::feeder.Stop();
 }
 
 void FeedBox::Interrupted() {
-
+	End();
 }

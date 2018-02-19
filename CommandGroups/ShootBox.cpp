@@ -2,12 +2,11 @@
 
 ShootBox::ShootBox() {
 	// Set Up
-	AddParallel(new PivotUp());
-	//AddSequential(new SpinFlywheels(2));
+	AddSequential(new PivotUp());
+	AddSequential(new PreSpin());
 
 	// Shoot
-	//AddParallel(new SpinFlywheels(2));
-	AddSequential(new LoadBox());
+	AddSequential(new SpinFlyWheels(2));
 
 	// Reset
 	AddSequential(new PivotDown());

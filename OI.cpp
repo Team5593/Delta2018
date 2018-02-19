@@ -10,17 +10,17 @@
 #include <WPILib.h>
 
 #include <Commands/GrabOpen.h>
-#include <Commands/GrabClose.h>
-#include <CommandGroups/LoadBox.h>
+#include <Commands/SpitOutBox.h>
+#include <Commands/FeedBox.h>
 #include <CommandGroups/ShootBox.h>
 
 using namespace frc;
 
 OI::OI() {
-	button_open.WhenPressed(new GrabOpen());
-	button_close.WhenPressed(new GrabClose());
-	button_load.WhenPressed(new LoadBox());
-	button_shoot.WhenPressed(new ShootBox());
+	button_a.ToggleWhenPressed(new GrabOpen());
+	button_b.WhenPressed(new SpitOutBox());
+	button_x.WhileHeld(new FeedBox(1));
+	button_y.WhenPressed(new ShootBox());
 }
 
 XboxController& OI::GetController() {

@@ -21,7 +21,7 @@ void ControllerDrive::Initialize() { }
 void ControllerDrive::Execute() {
 	auto& joystick = Robot::oi.GetController();
 
-	auto speed = joystick.GetRawAxis(1);
+	auto speed = -joystick.GetRawAxis(1);
 	auto heading = joystick.GetRawAxis(4);
 
 	Robot::drivetrain.Drive(speed, heading);
