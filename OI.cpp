@@ -9,16 +9,16 @@
 
 #include <WPILib.h>
 
-#include <Commands/OpenForBox.h>
-#include <Commands/CollectBox.h>
+#include <Commands/GrabOpen.h>
+#include <Commands/GrabClose.h>
 #include <CommandGroups/LoadBox.h>
 #include <CommandGroups/ShootBox.h>
 
 using namespace frc;
 
 OI::OI() {
-	button_open.WhenPressed(new OpenForBox());
-	button_close.WhenPressed(new CollectBox());
+	button_open.WhenPressed(new GrabOpen());
+	button_close.WhenPressed(new GrabClose());
 	button_load.WhenPressed(new LoadBox());
 	button_shoot.WhenPressed(new ShootBox());
 }

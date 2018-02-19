@@ -1,6 +1,6 @@
 #include "LoadBox.h"
 
 LoadBox::LoadBox() {
-	AddParallel(new GrabClose());
-	AddSequential(new FeedBox(2));
+	//AddParallel(new GrabClose());
+	AddSequential(new FeedBox(1));
 }

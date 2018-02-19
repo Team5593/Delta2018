@@ -4,9 +4,9 @@
 #include <Commands/CommandGroup.h>
 #include "../Robot.h"
 
-class SootBox: public CommandGroup {
+class ShootBox: public CommandGroup {
 public:
-	SootBox();
+	ShootBox();
 };
 
 #endif // ShootBox_H

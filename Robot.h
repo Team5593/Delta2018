@@ -16,11 +16,18 @@
 #include "Subsystems/DriveTrain.h"
 #include "Subsystems/Shooter.h"
 #include "Subsystems/Grompers.h"
+#include "CommandGroups/AutoTest.h"
+#include "CommandGroups/LoadBox.h"
+#include "CommandGroups/ShootBox.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/RotateTimed.h"
 #include "Commands/MoveDistance.h"
 #include "Commands/RotateAngle.h"
-#include "CommandGroups/AutoTest.h"
+#include "Commands/GrabClose.h"
+#include "Commands/GrabOpen.h"
+#include "Commands/PivotUp.h"
+#include "Commands/PivotDown.h"
+#include "Commands/FeedBox.h"
 
 class Robot : public frc::TimedRobot {
 public:
