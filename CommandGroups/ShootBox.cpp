@@ -3,7 +3,7 @@
 ShootBox::ShootBox() {
 	// Set Up
 	AddSequential(new PivotUp());
-	AddSequential(new PreSpin());
+	AddSequential(new PreSpin(2));
 
 	// Shoot
 	AddSequential(new SpinFlyWheels(2));

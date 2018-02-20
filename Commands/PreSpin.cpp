@@ -1,26 +1,28 @@
 #include "PreSpin.h"
 
-PreSpin::PreSpin() : TimedCommand(3) {
+PreSpin::PreSpin(double timeout):
+	TimedCommand(timeout)
+{
 	Requires(&Robot::shooter);
 }
 
-// Called just before this Command runs the first time
-void PreSpin::Initialize() {
+void PivotUp::Initialize() {
 
 }
 
-// Called repeatedly when this Command is scheduled to run
-void PreSpin::Execute() {
+void PivotUp::Execute() {
 	Robot::shooter.SetFlywheels(1.0);
 }
 
-// Called once after command times out
-void PreSpin::End() {
-
+bool PivotUp::IsFinished() {
+	return true;
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void PreSpin::Interrupted() {
-
+void PivotUp::End() {
+	Robot::shooter.SetFlywheels(0.0);
 }
+
+void PivotUp::Interrupted() {
+	End();
+}
+

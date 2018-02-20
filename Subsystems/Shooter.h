@@ -11,8 +11,6 @@ class Shooter: public frc::Subsystem
 public:
 	Shooter();
 
-	void InitDefaultCommand() override;
-
 	void SetFlywheels(double speed);
 
 	void SetPivot(bool state);

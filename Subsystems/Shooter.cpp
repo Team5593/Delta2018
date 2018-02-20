@@ -8,22 +8,17 @@ Shooter::Shooter()
 	motor_flywheel_right.SetInverted(true);
 }
 
-void Shooter::InitDefaultCommand() {
-	//SetDefaultCommand(new ControllerShoot());
-}
-
 void Shooter::SetFlywheels(double speed) {
 	motor_flywheel_left.Set(speed);
 	motor_flywheel_right.Set(speed);
-	std::cout << "That's pretty fly" << std::endl;
 }
 
 void Shooter::SetPivot(bool state) {
-	if (state == true) {
+	if (state) {
 		solenoid_pivot.Set(DoubleSolenoid::Value::kForward);
 	}
 	else {
-		solenoid_pivot.Set(DoubleSolenoid::Value::kReverse);
+		solenoid_pivot.Set(DoubleSolenoid::Value::kOff);
 	}
 }
 

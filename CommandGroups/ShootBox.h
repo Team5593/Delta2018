@@ -2,9 +2,9 @@
 #define ShootBox_H
 
 #include <Commands/CommandGroup.h>
-#include "../Robot.h"
+#include <Robot.h>
 
-class ShootBox: public CommandGroup {
+class ShootBox: public frc::CommandGroup {
 public:
 	ShootBox();
 };

@@ -6,9 +6,11 @@
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
 #include <CameraServer.h>
+#include <CommandGroups/AutoLobBox.h>
 #include <TimedRobot.h>
 #include <iostream>
 #include <DriverStation.h>
+#include <GyroBase.h>
 
 #include "OI.h"
 
@@ -29,11 +31,11 @@
 #include "Commands/PivotDown.h"
 #include "Commands/FeedBox.h"
 #include "Commands/SpinFlyWheels.h"
-#include "Commands/PreSpin.h"
 #include "Commands/SpitOutBox.h"
+#include "Commands/PreSpin.h"
 // Autonomous
 #include "CommandGroups/BasicAuto.h"
-#include "CommandGroups/AutoLobBoxRight.h"
+#include "CommandGroups/AutoLobBox.h"
 #include "CommandGroups/AutoTest.h"
 
 class Robot : public frc::TimedRobot {
@@ -45,6 +47,12 @@ public:
 	static Feeder feeder;
 	// Operator Interface
 	static OI oi;
+
+	// Pre Game
+	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
+	enum Position { Left = 'L', Middle = 'M', Right = 'R' };
+	Position* GetGameData();
+	Position robot_position;
 
 private:
 	// Robot States
@@ -58,10 +66,4 @@ private:
 	void TeleopPeriodic() override;
 	void TestInit() override;
 	void TestPeriodic() override;
-
-	// Pre Game
-	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
-	enum Position { Left = 'L', Middle = 'M', Right = 'R' };
-	Position* GetGameData();
-	Position robot_position;
 };

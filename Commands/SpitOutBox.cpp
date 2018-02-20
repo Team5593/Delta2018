@@ -1,26 +1,25 @@
 #include "SpitOutBox.h"
 
-FeedBox::FeedBox() {
-	Requires(&Robot::shooter);
-	Requires(&Robot::grompers)
+SpitOutBox::SpitOutBox() {
+	Requires(&Robot::grompers);
+	Requires(&Robot::feeder);
 }
 
-void FeedBox::Initialize() {
+void SpitOutBox::Initialize() {
 	Robot::grompers.WheelsForward();
-	Robot::grompers.OpenGrabbers();
-}
-
-void FeedBox::Execute() {
-	Robot::shooter.SetFeeder(-0.75);
-}
-
-void FeedBox::End() {
-	Robot::shooter.SetFeeder(0.0);
 	Robot::grompers.CloseGrabbers();
+}
+
+void SpitOutBox::Execute() {
+	Robot::feeder.Reverse();
+}
+
+void SpitOutBox::End() {
+	Robot::feeder.Stop();
 	Robot::grompers.WheelsStop();
 }
 
-void FeedBox::Interrupted() {
+void SpitOutBox::Interrupted() {
 	End();
 }
 

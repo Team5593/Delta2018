@@ -5,6 +5,9 @@
 #include <iostream>
 #include "../Commands/ControllerDrive.h"
 #include <SPI.h>
+#include <Encoder.h>
+#include <PWMSpeedController.h>
+#include <GyroBase.h>
 
 DriveTrain::DriveTrain():
 	frc::Subsystem("DriveTrain"),
