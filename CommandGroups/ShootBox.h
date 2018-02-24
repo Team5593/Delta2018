@@ -6,7 +6,8 @@
 
 class ShootBox: public frc::CommandGroup {
 public:
-	ShootBox();
+	enum Height { Low, High };
+	ShootBox(Height height);
 };
 
 #endif // ShootBox_H

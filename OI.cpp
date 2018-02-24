@@ -19,8 +19,8 @@ using namespace frc;
 OI::OI() {
 	button_a.ToggleWhenPressed(new GrabOpen());
 	button_b.WhenPressed(new SpitOutBox());
-	button_x.WhileHeld(new FeedBox(1));
-	button_y.WhenPressed(new ShootBox());
+	button_x.WhenPressed(new ShootBox(ShootBox::Height::Low));
+	button_y.WhenPressed(new ShootBox(ShootBox::Height::High));
 }
 
 XboxController& OI::GetController() {

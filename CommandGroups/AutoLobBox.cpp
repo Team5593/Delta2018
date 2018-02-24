@@ -8,5 +8,5 @@ AutoLobBox::AutoLobBox(char pos) {
 	else if (pos == Robot::Left)
 		angle = -90;
 	AddSequential(new RotateAngle(angle, 0.75));
-	AddSequential(new SpinFlyWheels(2));
+	AddSequential(new ShootBox(ShootBox::Height::Low));
 }
