@@ -9,6 +9,8 @@
 #include <CommandGroups/AutoLobBox.h>
 #include <CommandGroups/AutoTest.h>
 
+#include <OI.h> // this is just here to fix eclipse semantic errors...
+
 DriveTrain Robot::drivetrain;
 Shooter Robot::shooter;
 Grompers Robot::grompers;
