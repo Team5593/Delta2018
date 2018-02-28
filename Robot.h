@@ -7,6 +7,7 @@
 #include <SmartDashboard/SmartDashboard.h>
 #include <CameraServer.h>
 #include <CommandGroups/AutoLobBox.h>
+#include <CommandGroups/ShootBoxLow.h>
 #include <TimedRobot.h>
 #include <iostream>
 #include <DriverStation.h>
@@ -20,7 +21,6 @@
 #include "Subsystems/Grompers.h"
 #include "Subsystems/Feeder.h"
 
-#include "CommandGroups/ShootBox.h"
 #include "Commands/MoveTimed.h"
 #include "Commands/MoveDistance.h"
 #include "Commands/RotateAngle.h"

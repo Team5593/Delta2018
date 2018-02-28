@@ -14,6 +14,10 @@ void SpitOutBox::Execute() {
 	Robot::feeder.Reverse();
 }
 
+bool SpitOutBox::IsFinished() {
+	return true;
+}
+
 void SpitOutBox::End() {
 	Robot::feeder.Stop();
 	Robot::grompers.WheelsStop();

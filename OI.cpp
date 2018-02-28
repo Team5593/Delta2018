@@ -5,22 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#include <CommandGroups/ShootBoxLow.h>
 #include "OI.h"
 
 #include <WPILib.h>
 
 #include <Commands/GrabOpen.h>
 #include <Commands/SpitOutBox.h>
-#include <Commands/FeedBox.h>
-#include <CommandGroups/ShootBox.h>
+#include <CommandGroups/ShootBoxLow.h>
+#include <CommandGroups/ShootBoxHigh.h>
 
 using namespace frc;
 
 OI::OI() {
 	button_a.ToggleWhenPressed(new GrabOpen());
 	button_b.WhenPressed(new SpitOutBox());
-	button_x.WhenPressed(new ShootBox(ShootBox::Height::Low));
-	button_y.WhenPressed(new ShootBox(ShootBox::Height::High));
+	button_x.WhenPressed(new ShootBoxLow());
+	button_y.WhenPressed(new ShootBoxHigh());
 }
 
 XboxController& OI::GetController() {
