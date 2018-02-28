@@ -15,7 +15,7 @@ void SpitOutBox::Execute() {
 }
 
 bool SpitOutBox::IsFinished() {
-	return true;
+	return false;
 }
 
 void SpitOutBox::End() {
