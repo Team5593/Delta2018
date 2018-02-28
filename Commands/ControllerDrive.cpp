@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "ControllerDrive.h"
+
 #include <Robot.h>
 
 using namespace frc;
@@ -35,4 +36,6 @@ void ControllerDrive::End() {
 	Robot::drivetrain.Drive(0, 0);
 }
 
-void ControllerDrive::Interrupted() { End(); }
+void ControllerDrive::Interrupted() {
+	End();
+}
