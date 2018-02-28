@@ -1,7 +1,7 @@
 #include "FeedBox.h"
 
 FeedBox::FeedBox(double timeout):
-	TimedCommand(2)
+	TimedCommand(timeout)
 {
 	Requires(&Robot::feeder);
 }
