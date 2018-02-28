@@ -1,6 +1,14 @@
 #include "Robot.h"
 
-// Static Members
+#include <Commands/Scheduler.h>
+#include <CameraServer.h>
+#include <GyroBase.h>
+#include <DriverStation.h>
+
+#include <CommandGroups/BasicAuto.h>
+#include <CommandGroups/AutoLobBox.h>
+#include <CommandGroups/AutoTest.h>
+
 DriveTrain Robot::drivetrain;
 Shooter Robot::shooter;
 Grompers Robot::grompers;
