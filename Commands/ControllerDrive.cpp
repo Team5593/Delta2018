@@ -22,10 +22,16 @@ void ControllerDrive::Initialize() { }
 void ControllerDrive::Execute() {
 	auto& joystick = Robot::oi.GetController();
 
-	auto speed = -joystick.GetRawAxis(1);
+	auto forwards = -joystick.GetRawAxis(1);
 	auto heading = joystick.GetRawAxis(4);
+	auto speed = joystick.GetRawAxis(7);
 
-	Robot::drivetrain.Drive(speed, heading);
+	speed = (speed / 2) + 0.5; // range from 0.5 to 1.0
+
+	forwards *= speed;
+	heading *= speed;
+
+	Robot::drivetrain.Drive(forwards, heading);
 }
 
 bool ControllerDrive::IsFinished() {
