@@ -5,9 +5,10 @@
 #include <GyroBase.h>
 #include <DriverStation.h>
 
-#include <CommandGroups/BasicAuto.h>
+#include <CommandGroups/AutoBasic.h>
 #include <CommandGroups/AutoLobBox.h>
 #include <CommandGroups/AutoTest.h>
+#include <CommandGroups/AutoMiddle.h>
 
 #include <OI.h> // this is just here to fix eclipse semantic errors...
 
@@ -34,18 +35,19 @@ void Robot::AutonomousInit() {
 	Position switch_side = sides[Plate::SwitchClose];
 	robot_position = Position::Left;
 
-	if (switch_side == Position::Left) { // Left
-		switch (robot_position) {
-			case Position::Left: 	autoCommand = new AutoLobBox(Position::Right); break;
-			case Position::Middle: 	/*autoCommand = new BasicAuto;*/ break;
-			case Position::Right: 	autoCommand = new BasicAuto; break;
-		}
+	if (robot_position == Position::Middle) {
+		// Go around the switch to the right.
+		autoCommand = new AutoMiddle;
 	}
-	else { // Right
-		switch (robot_position) {
-			case Position::Left: 	autoCommand = new BasicAuto; break;
-			case Position::Middle: 	/*autoCommand = new BasicAuto;*/ break;
-			case Position::Right: 	autoCommand = new AutoLobBox(Position::Left); break;
+	else if (switch_side != robot_position) {
+		// Robot is on the wrong side, just cross the base line.
+		autoCommand = new AutoBasic;
+	}
+	else {
+		// Switch is on robot side. Lob box towards the switch.
+		switch(robot_position) {
+			case Position::Left: autoCommand = new AutoLobBox(Position::Right); break;
+			case Position::Right: autoCommand = new AutoLobBox(Position::Left); break;
 		}
 	}
 
