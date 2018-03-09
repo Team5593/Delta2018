@@ -1,7 +1,7 @@
-#include "BasicAuto.h"
+#include "AutoBasic.h"
 
 #include <Commands/MoveDistance.h>
 
-BasicAuto::BasicAuto() {
+AutoBasic::AutoBasic() {
 	AddSequential(new MoveDistance(12 * 12, 0.75)); // 12 feet
 }
