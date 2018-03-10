@@ -1,6 +1,7 @@
 #include "ControllerDrive.h"
 
 #include <Robot.h>
+#include <OI.h>
 
 using namespace frc;
 
