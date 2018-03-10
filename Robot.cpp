@@ -18,7 +18,6 @@ Grompers Robot::grompers;
 Feeder Robot::feeder;
 OI Robot::oi;
 
-// Robot States
 void Robot::RobotInit() {
 	CameraServer::GetInstance()->StartAutomaticCapture("Front Camera" , 0);
 	drivetrain.GetGyro().Calibrate();
@@ -28,7 +27,6 @@ void Robot::RobotPeriodic() {
 
 }
 
-// Autonomous
 void Robot::AutonomousInit() {
 	Command* auto_command;
 	Position* sides = GetGameData();
@@ -55,7 +53,6 @@ void Robot::AutonomousPeriodic() {
 	frc::Scheduler::GetInstance()->Run();
 }
 
-// Teleop
 void Robot::TeleopInit() {
 	frc::Scheduler::GetInstance()->RemoveAll();
 }
@@ -69,7 +66,6 @@ void Robot::TestPeriodic() {}
 void Robot::DisabledInit() {}
 void Robot::DisabledPeriodic() {}
 
-// Game Data
 Robot::Position* Robot::GetGameData() {
 	static Position sides[3];
 
