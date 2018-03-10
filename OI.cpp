@@ -20,7 +20,7 @@ using namespace frc;
 
 OI::OI() {
 	button_a.ToggleWhenPressed(new GrabOpen());
-	button_b.WhileHeld(new FeedBox(1));
+	button_b.WhileHeld(new FeedBox(2));
 	button_x.WhenPressed(new ShootBoxLow());
 	button_y.WhenPressed(new ShootBoxHigh());
 	button_start.WhileHeld(new SpitOutBox());
