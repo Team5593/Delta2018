@@ -39,17 +39,15 @@ void Robot::AutonomousInit() {
 		// Go around the switch to the right.
 		autoCommand = new AutoMiddle;
 	}
-	else if (switch_side != robot_position) {
+	else if (switch_side == robot_position) {
+		// Put powercube in the switch
+		autoCommand = new AutoLobBox(robot_position);
+	}
+	else { // switch_side != robot_position
 		// Robot is on the wrong side, just cross the base line.
 		autoCommand = new AutoBasic;
 	}
-	else {
-		// Switch is on robot side. Lob box towards the switch.
-		switch(robot_position) {
-			case Position::Left: autoCommand = new AutoLobBox(Position::Right); break;
-			case Position::Right: autoCommand = new AutoLobBox(Position::Left); break;
-		}
-	}
+	
 
 	frc::Scheduler::GetInstance()->AddCommand(autoCommand);
 }

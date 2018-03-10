@@ -9,7 +9,7 @@
 AutoLobBox::AutoLobBox(char pos) {
 	AddSequential(new MoveDistance(148, 0.8));
 	double angle = 90;
-	if (pos == Robot::Left)
+	if (pos == Robot::Right)
 		angle = -90;
 	AddSequential(new RotateAngle(angle, 0.75));
 	AddSequential(new MoveTimed(0.5, 0.5)); // bump up against the fence
