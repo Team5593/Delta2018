@@ -24,6 +24,7 @@ OI::OI() {
 	button_x.WhenPressed(new ShootBoxLow());
 	button_y.WhenPressed(new ShootBoxHigh());
 	button_start.WhileHeld(new SpitOutBox());
+	button_select.WhileHeld(new SpitOutBox());
 }
 
 XboxController& OI::GetController() {
