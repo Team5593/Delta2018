@@ -30,26 +30,25 @@ void Robot::RobotPeriodic() {
 
 // Autonomous
 void Robot::AutonomousInit() {
-	Command* autoCommand;
+	Command* auto_command;
 	Position* sides = GetGameData();
 	Position switch_side = sides[Plate::SwitchClose];
 	robot_position = Position::Left;
 
 	if (robot_position == Position::Middle) {
 		// Go around the switch to the right.
-		autoCommand = new AutoMiddle;
+		auto_command = new AutoMiddle;
 	}
 	else if (switch_side == robot_position) {
 		// Put powercube in the switch
-		autoCommand = new AutoLobBox(robot_position);
+		auto_command = new AutoLobBox(robot_position);
 	}
 	else { // switch_side != robot_position
 		// Robot is on the wrong side, just cross the base line.
-		autoCommand = new AutoBasic;
+		auto_command = new AutoBasic;
 	}
 	
-
-	frc::Scheduler::GetInstance()->AddCommand(autoCommand);
+	frc::Scheduler::GetInstance()->AddCommand(auto_command);
 }
 
 void Robot::AutonomousPeriodic() {
