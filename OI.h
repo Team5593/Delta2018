@@ -17,6 +17,6 @@ private:
 	JoystickButton button_b{&controller, 2};
 	JoystickButton button_x{&controller, 3};
 	JoystickButton button_y{&controller, 4};
-	JoystickButton button_start{&controller, 7};
-	JoystickButton button_select{&controller, 6};
+	JoystickButton button_start{&controller, 8};
+	JoystickButton button_select{&controller, 7};
 };

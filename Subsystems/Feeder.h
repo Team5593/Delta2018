@@ -15,6 +15,7 @@ public:
 	Feeder();
 
 	void Forward();
+	void Slow();
 	void Reverse();
 	void Stop();
 

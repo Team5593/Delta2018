@@ -32,6 +32,6 @@ void MoveDistance::End() {
 void MoveDistance::Interrupted() { End(); }
 
 void MoveDriveTrain::PIDWrite(double output) {
-	auto rotation_correction = Robot::drivetrain.GetGyro().GetAngle() / 90;
-	Robot::drivetrain.Drive(output, rotation_correction);
+	//auto rotation_correction = Robot::drivetrain.GetGyro().GetAngle() / 90;
+	Robot::drivetrain.Drive(output, 0);
 }

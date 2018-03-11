@@ -13,6 +13,11 @@ void Feeder::Forward() {
 	runner_right.Set(speed);
 }
 
+void Feeder::Slow() {
+	runner_left.Set(speed * 0.5);
+	runner_right.Set(speed * 0.5);
+}
+
 void Feeder::Reverse() {
 	runner_left.Set(-speed);
 	runner_right.Set(-speed);

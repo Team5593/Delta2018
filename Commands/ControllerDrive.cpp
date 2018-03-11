@@ -18,9 +18,9 @@ void ControllerDrive::Execute() {
 
 	auto forwards = -joystick.GetRawAxis(1);
 	auto heading = joystick.GetRawAxis(4);
-	auto speed = joystick.GetRawAxis(7);
+	auto speed = joystick.GetRawAxis(3);
 
-	speed = 0.5 + (speed * 0.5);
+	speed = 0.75 + (speed * 0.25);
 
 	forwards *= speed;
 	heading *= speed;

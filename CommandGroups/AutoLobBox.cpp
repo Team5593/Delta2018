@@ -7,11 +7,11 @@
 #include <CommandGroups/ShootBoxLow.h>
 
 AutoLobBox::AutoLobBox(char pos) {
-	AddSequential(new MoveDistance(148, 0.8));
+	AddSequential(new MoveDistance(130, 0.75));
 	double angle = 90;
 	if (pos == Robot::Right)
 		angle = -90;
 	AddSequential(new RotateAngle(angle, 0.75));
-	AddSequential(new MoveTimed(0.5, 0.5)); // bump up against the fence
+	AddSequential(new MoveTimed(1.5, 0.75)); // bump up against the fence
 	AddSequential(new ShootBoxLow());
 }

@@ -9,7 +9,7 @@ ShootBoxHigh::ShootBoxHigh() {
 		AddSequential(new PivotUp());
 
 		// Shoot
-		AddSequential(new SpinFlyWheels(1));
+		AddSequential(new SpinFlyWheels(2));
 		AddParallel(new FeedBox(2));
 		AddSequential(new SpinFlyWheels(2));
 

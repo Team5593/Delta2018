@@ -18,7 +18,7 @@ void Shooter::SetPivot(bool state) {
 		solenoid_pivot.Set(DoubleSolenoid::Value::kForward);
 	}
 	else {
-		solenoid_pivot.Set(DoubleSolenoid::Value::kOff);
+		solenoid_pivot.Set(DoubleSolenoid::Value::kReverse);
 	}
 }
 
