@@ -1,4 +1,5 @@
 #include "SpinFlyWheels.h"
+#include <XboxController.h>
 
 SpinFlyWheels::SpinFlyWheels(double timeout):
 	TimedCommand(timeout)
@@ -11,7 +12,11 @@ void SpinFlyWheels::Initialize() {
 }
 
 void SpinFlyWheels::Execute() {
-	Robot::shooter.SetFlywheels(1.0);
+	auto& joystick = Robot::oi.GetController();
+	double speed = 1.0;
+	if (joystick.GetBumper(XboxController::JoystickHand::kLeftHand)) speed = 0.95;
+	else if (joystick.GetBumper(XboxController::JoystickHand::kRightHand)) speed = 0.90;
+	Robot::shooter.SetFlywheels(speed);
 }
 
 void SpinFlyWheels::End() {
@@ -19,5 +24,5 @@ void SpinFlyWheels::End() {
 }
 
 void SpinFlyWheels::Interrupted() {
-
+	End();
 }

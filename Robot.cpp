@@ -9,6 +9,7 @@
 #include <CommandGroups/AutoLobBox.h>
 #include <CommandGroups/AutoTest.h>
 #include <CommandGroups/AutoMiddle.h>
+#include <Commands/MoveDistance.h>
 
 #include <OI.h> // this is just here to fix eclipse semantic errors...
 
@@ -35,7 +36,7 @@ void Robot::AutonomousInit() {
 
 	if (robot_position == Position::Middle) {
 		// Go around the switch to the right.
-		auto_command = new AutoMiddle;
+		auto_command = new AutoMiddle(switch_side);
 	}
 	else if (switch_side == robot_position) {
 		// Put powercube in the switch
@@ -46,6 +47,8 @@ void Robot::AutonomousInit() {
 		auto_command = new AutoBasic;
 	}
 	
+	//auto_command = new MoveDistance(100, 0.6);
+
 	frc::Scheduler::GetInstance()->AddCommand(auto_command);
 }
 

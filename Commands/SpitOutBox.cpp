@@ -7,7 +7,7 @@ SpitOutBox::SpitOutBox() {
 
 void SpitOutBox::Initialize() {
 	Robot::grompers.WheelsForward();
-	Robot::grompers.CloseGrabbers();
+	Robot::grompers.OpenGrabbers();
 }
 
 void SpitOutBox::Execute() {

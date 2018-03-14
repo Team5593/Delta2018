@@ -18,7 +18,7 @@ bool GrabOpen::IsFinished() {
 }
 
 void GrabOpen::End() {
-	Robot::grompers.WheelsStop();
+	//Robot::grompers.WheelsStop();
 	Robot::grompers.CloseGrabbers();
 }
 

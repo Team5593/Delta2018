@@ -20,7 +20,7 @@ void ControllerDrive::Execute() {
 	auto heading = joystick.GetRawAxis(4);
 	auto speed = joystick.GetRawAxis(3);
 
-	speed = 0.75 + (speed * 0.25);
+	speed = 0.75 + (speed * 0.25); // max 90%
 
 	forwards *= speed;
 	heading *= speed;
