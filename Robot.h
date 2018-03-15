@@ -23,7 +23,8 @@ public:
 	// Pre Game
 	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
 	enum Position { Left = 'L', Middle = 'M', Right = 'R' };
-	Position* GetGameData();
+	static Position* GetGameData();
+	static Position GetSwitchSide();
 	frc::SendableChooser<Position> *position_selector;
 
 private:

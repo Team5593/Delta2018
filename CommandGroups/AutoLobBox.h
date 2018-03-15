@@ -5,7 +5,7 @@
 
 class AutoLobBox : public frc::CommandGroup {
 public:
-	AutoLobBox(char pos);
+	AutoLobBox();
 };
 
 #endif  // AutoLobBox_H

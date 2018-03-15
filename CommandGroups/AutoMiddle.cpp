@@ -4,8 +4,8 @@
 #include <CommandGroups/ShootBoxLow.h>
 #include <Robot.h>
 
-AutoMiddle::AutoMiddle(char pos) {
+AutoMiddle::AutoMiddle() {
 	AddSequential(new MoveTimed(2.5, 0.8)); // move away from wall
-	if (pos == Robot::Right) // when on right
+	if (Robot::GetSwitchSide() == Robot::Right) // when on right
 		AddSequential(new ShootBoxLow);
 }

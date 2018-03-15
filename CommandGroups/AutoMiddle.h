@@ -5,7 +5,7 @@
 
 class AutoMiddle : public frc::CommandGroup {
 public:
-	AutoMiddle(char pos);
+	AutoMiddle();
 };
 
 #endif  // AutoMiddle_H
