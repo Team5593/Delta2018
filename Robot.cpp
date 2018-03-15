@@ -1,6 +1,7 @@
 #include "Robot.h"
 
 #include <Commands/Scheduler.h>
+#include <SmartDashboard/SendableChooser.h>
 #include <CameraServer.h>
 #include <GyroBase.h>
 #include <DriverStation.h>
@@ -20,7 +21,12 @@ Feeder Robot::feeder;
 OI Robot::oi;
 
 void Robot::RobotInit() {
+	position_selector->AddDefault("Middle", Position::Middle);
+	position_selector->AddObject("Left", Position::Left);
+	position_selector->AddObject("Right", Position::Right);
+
 	CameraServer::GetInstance()->StartAutomaticCapture("Front Camera" , 0);
+
 	drivetrain.GetGyro().Calibrate();
 }
 
@@ -32,22 +38,20 @@ void Robot::AutonomousInit() {
 	Command* auto_command;
 	Position* sides = GetGameData();
 	Position switch_side = sides[Plate::SwitchClose];
-	robot_position = Position::Left;
+	Position position = (Position) position_selector->GetSelected();
 
-	if (robot_position == Position::Middle) {
+	if (position == Position::Middle) {
 		// Go around the switch to the right.
 		auto_command = new AutoMiddle(switch_side);
 	}
-	else if (switch_side == robot_position) {
+	else if (position == switch_side) {
 		// Put powercube in the switch
-		auto_command = new AutoLobBox(robot_position);
+		auto_command = new AutoLobBox(position);
 	}
 	else { // switch_side != robot_position
 		// Robot is on the wrong side, just cross the base line.
 		auto_command = new AutoBasic;
 	}
-	
-	//auto_command = new MoveDistance(100, 0.6);
 
 	frc::Scheduler::GetInstance()->AddCommand(auto_command);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <TimedRobot.h>
+#include <SmartDashboard/SendableChooser.h>
 
 #include <Subsystems/DriveTrain.h>
 #include <Subsystems/Shooter.h>
@@ -23,7 +24,7 @@ public:
 	enum Plate { SwitchClose, ScaleMiddle, SwitchFar };
 	enum Position { Left = 'L', Middle = 'M', Right = 'R' };
 	Position* GetGameData();
-	Position robot_position;
+	frc::SendableChooser<Position> *position_selector;
 
 private:
 	// Robot States
