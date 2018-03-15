@@ -7,19 +7,3 @@ PivotDown::PivotDown() {
 void PivotDown::Initialize() {
 	Robot::shooter.SetPivot(false);
 }
-
-void PivotDown::Execute() {
-	
-}
-
-bool PivotDown::IsFinished() {
-	return true;
-}
-
-void PivotDown::End() {
-
-}
-
-void PivotDown::Interrupted() {
-	End();
-}

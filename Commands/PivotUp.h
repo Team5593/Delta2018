@@ -1,17 +1,13 @@
 #ifndef PivotUp_H
 #define PivotUp_H
 
-#include <Commands/TimedCommand.h>
+#include <Commands/InstantCommand.h>
 #include <Robot.h>
 
-class PivotUp : public frc::TimedCommand{
+class PivotUp : public frc::InstantCommand{
 public:
 	PivotUp();
 	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
 };
 
 #endif // PivotUp_H
