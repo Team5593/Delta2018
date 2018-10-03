@@ -6,7 +6,7 @@
 #include <Commands/Subsystem.h>
 #include <DoubleSolenoid.h>
 #include <PWMTalonSRX.h>
-#include <RobotMap.h>
+#include "../RobotMap.h"
 
 class Grompers : public frc::Subsystem {
 private:

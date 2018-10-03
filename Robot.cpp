@@ -6,13 +6,13 @@
 #include <GyroBase.h>
 #include <DriverStation.h>
 
-#include <CommandGroups/AutoBasic.h>
-#include <CommandGroups/AutoLobBox.h>
-#include <CommandGroups/AutoTest.h>
-#include <CommandGroups/AutoMiddle.h>
-#include <Commands/MoveDistance.h>
+#include "CommandGroups/AutoBasic.h"
+#include "CommandGroups/AutoLobBox.h"
+#include "CommandGroups/AutoTest.h"
+#include "CommandGroups/AutoMiddle.h"
+#include "Commands/MoveDistance.h"
 
-#include <OI.h> // this is just here to fix eclipse semantic errors...
+#include "OI.h" // this is just here to fix eclipse semantic errors...
 
 DriveTrain Robot::drivetrain;
 Shooter Robot::shooter;
